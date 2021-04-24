@@ -26,23 +26,23 @@ def set_handler(levels):
     # 给logger添加handler
     if levels == 'error':
         logger.addHandler(MyLog.err_handler)
-        logger.addHandler(MyLog.streamHandler)
+        # logger.addHandler(MyLog.streamHandler)
     logger.addHandler(MyLog.handler)
-    logger.addHandler(MyLog.streamHandler)
+    # logger.addHandler(MyLog.streamHandler)
 
 def remove_handler(levels):
     if levels == 'error':
         logger.removeHandler(MyLog.err_handler)
-        logger.removeHandler(MyLog.streamHandler)
+        # logger.removeHandler(MyLog.streamHandler)
     logger.removeHandler(MyLog.handler)
-    logger.removeHandler(MyLog.streamHandler)
+    # logger.removeHandler(MyLog.streamHandler)
 
 def get_current_time():
     return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
 
 class MyLog:
     path = os.path.abspath(os.path.dirname(__file__))
-    print(path)
+    # print(path)
     log_file = path+'/Log/default.log'
     err_file = path+'/Log/error.log'
     # 创建logger
@@ -53,7 +53,7 @@ class MyLog:
     handler = logging.FileHandler(log_file, encoding='utf-8')
     err_handler = logging.FileHandler(err_file, encoding='utf-8')
     # 再创建一个handler，用于输出到控制台
-    streamHandler = logging.StreamHandler()
+    # streamHandler = logging.StreamHandler()
 
     @staticmethod
     def debug(log_meg):
